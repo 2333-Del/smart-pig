@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.pig.mapper.TbNewDataMapper">
+    
+    <resultMap type="TbNewData" id="TbNewDataResult">
+        <result property="id"    column="id"    />
+        <result property="equipmentId"    column="equipment_id"    />
+        <result property="temperature"    column="temperature"    />
+        <result property="ammonia"    column="ammonia"    />
+        <result property="humidity"    column="humidity"    />
+        <result property="pm25"    column="pm25"    />
+        <result property="pm10"    column="pm10"    />
+        <result property="co2"    column="co2"    />
+        <result property="co"    column="co"    />
+        <result property="sulfHydr"    column="sulf_hydr"    />
+        <result property="acquisitionTime"    column="acquisition_time"    />
+    </resultMap>
+
+    <sql id="selectTbNewDataVo">
+        select id, equipment_id, temperature, ammonia, humidity, pm25, pm10, co2, co, sulf_hydr, acquisition_time from tb_new_data
+    </sql>
+
+    <select id="selectTbNewDataList" parameterType="TbNewData" resultMap="TbNewDataResult">
+        <include refid="selectTbNewDataVo"/>
+        <where>  
+            <if test="equipmentId != null "> and equipment_id = #{equipmentId}</if>
+            <if test="temperature != null  and temperature != ''"> and temperature = #{temperature}</if>
+            <if test="ammonia != null  and ammonia != ''"> and ammonia = #{ammonia}</if>
+            <if test="humidity != null  and humidity != ''"> and humidity = #{humidity}</if>
+            <if test="pm25 != null  and pm25 != ''"> and pm25 = #{pm25}</if>
+            <if test="pm10 != null  and pm10 != ''"> and pm10 = #{pm10}</if>
+            <if test="co2 != null  and co2 != ''"> and co2 = #{co2}</if>
+            <if test="co != null  and co != ''"> and co = #{co}</if>
+            <if test="sulfHydr != null  and sulfHydr != ''"> and sulf_hydr = #{sulfHydr}</if>
+            <if test="acquisitionTime != null "> and acquisition_time = #{acquisitionTime}</if>
+        </where>
+    </select>
+    
+    <select id="selectTbNewDataById" parameterType="Long" resultMap="TbNewDataResult">
+        <include refid="selectTbNewDataVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTbNewData" parameterType="TbNewData" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_new_data
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="equipmentId != null">equipment_id,</if>
+            <if test="temperature != null">temperature,</if>
+            <if test="ammonia != null">ammonia,</if>
+            <if test="humidity != null">humidity,</if>
+            <if test="pm25 != null">pm25,</if>
+            <if test="pm10 != null">pm10,</if>
+            <if test="co2 != null">co2,</if>
+            <if test="co != null">co,</if>
+            <if test="sulfHydr != null">sulf_hydr,</if>
+            <if test="acquisitionTime != null">acquisition_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="equipmentId != null">#{equipmentId},</if>
+            <if test="temperature != null">#{temperature},</if>
+            <if test="ammonia != null">#{ammonia},</if>
+            <if test="humidity != null">#{humidity},</if>
+            <if test="pm25 != null">#{pm25},</if>
+            <if test="pm10 != null">#{pm10},</if>
+            <if test="co2 != null">#{co2},</if>
+            <if test="co != null">#{co},</if>
+            <if test="sulfHydr != null">#{sulfHydr},</if>
+            <if test="acquisitionTime != null">#{acquisitionTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTbNewData" parameterType="TbNewData">
+        update tb_new_data
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="equipmentId != null">equipment_id = #{equipmentId},</if>
+            <if test="temperature != null">temperature = #{temperature},</if>
+            <if test="ammonia != null">ammonia = #{ammonia},</if>
+            <if test="humidity != null">humidity = #{humidity},</if>
+            <if test="pm25 != null">pm25 = #{pm25},</if>
+            <if test="pm10 != null">pm10 = #{pm10},</if>
+            <if test="co2 != null">co2 = #{co2},</if>
+            <if test="co != null">co = #{co},</if>
+            <if test="sulfHydr != null">sulf_hydr = #{sulfHydr},</if>
+            <if test="acquisitionTime != null">acquisition_time = #{acquisitionTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTbNewDataById" parameterType="Long">
+        delete from tb_new_data where id = #{id}
+    </delete>
+
+    <delete id="deleteTbNewDataByIds" parameterType="String">
+        delete from tb_new_data where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

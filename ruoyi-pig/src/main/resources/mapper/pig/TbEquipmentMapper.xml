@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ruoyi.pig.mapper.TbEquipmentMapper">
+    
+    <resultMap type="TbEquipment" id="TbEquipmentResult">
+        <result property="id"    column="id"    />
+        <result property="equipmentId"    column="equipment_id"    />
+        <result property="equipmentName"    column="equipment_name"    />
+        <result property="longAndLati"    column="long_and_lati"    />
+        <result property="equipmentType"    column="equipment_type"    />
+        <result property="connectTime"    column="connect_time"    />
+        <result property="equipmentIp"    column="equipment_ip"    />
+        <result property="onlineType"    column="online_type"    />
+        <result property="manufacturer"    column="manufacturer"    />
+    </resultMap>
+
+    <sql id="selectTbEquipmentVo">
+        select id, equipment_id, equipment_name, long_and_lati, equipment_type, connect_time, equipment_ip, online_type, manufacturer from tb_equipment
+    </sql>
+
+    <select id="selectTbEquipmentList" parameterType="TbEquipment" resultMap="TbEquipmentResult">
+        <include refid="selectTbEquipmentVo"/>
+        <where>  
+            <if test="equipmentId != null  and equipmentId != ''"> and equipment_id = #{equipmentId}</if>
+            <if test="equipmentName != null  and equipmentName != ''"> and equipment_name like concat('%', #{equipmentName}, '%')</if>
+            <if test="longAndLati != null  and longAndLati != ''"> and long_and_lati = #{longAndLati}</if>
+            <if test="equipmentType != null "> and equipment_type = #{equipmentType}</if>
+            <if test="connectTime != null "> and connect_time = #{connectTime}</if>
+            <if test="equipmentIp != null  and equipmentIp != ''"> and equipment_ip = #{equipmentIp}</if>
+            <if test="onlineType != null "> and online_type = #{onlineType}</if>
+            <if test="manufacturer != null  and manufacturer != ''"> and manufacturer = #{manufacturer}</if>
+        </where>
+    </select>
+    
+    <select id="selectTbEquipmentById" parameterType="Long" resultMap="TbEquipmentResult">
+        <include refid="selectTbEquipmentVo"/>
+        where id = #{id}
+    </select>
+        
+    <insert id="insertTbEquipment" parameterType="TbEquipment" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_equipment
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="equipmentId != null">equipment_id,</if>
+            <if test="equipmentName != null">equipment_name,</if>
+            <if test="longAndLati != null">long_and_lati,</if>
+            <if test="equipmentType != null">equipment_type,</if>
+            <if test="connectTime != null">connect_time,</if>
+            <if test="equipmentIp != null">equipment_ip,</if>
+            <if test="onlineType != null">online_type,</if>
+            <if test="manufacturer != null">manufacturer,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="equipmentId != null">#{equipmentId},</if>
+            <if test="equipmentName != null">#{equipmentName},</if>
+            <if test="longAndLati != null">#{longAndLati},</if>
+            <if test="equipmentType != null">#{equipmentType},</if>
+            <if test="connectTime != null">#{connectTime},</if>
+            <if test="equipmentIp != null">#{equipmentIp},</if>
+            <if test="onlineType != null">#{onlineType},</if>
+            <if test="manufacturer != null">#{manufacturer},</if>
+         </trim>
+    </insert>
+
+    <update id="updateTbEquipment" parameterType="TbEquipment">
+        update tb_equipment
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="equipmentId != null">equipment_id = #{equipmentId},</if>
+            <if test="equipmentName != null">equipment_name = #{equipmentName},</if>
+            <if test="longAndLati != null">long_and_lati = #{longAndLati},</if>
+            <if test="equipmentType != null">equipment_type = #{equipmentType},</if>
+            <if test="connectTime != null">connect_time = #{connectTime},</if>
+            <if test="equipmentIp != null">equipment_ip = #{equipmentIp},</if>
+            <if test="onlineType != null">online_type = #{onlineType},</if>
+            <if test="manufacturer != null">manufacturer = #{manufacturer},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteTbEquipmentById" parameterType="Long">
+        delete from tb_equipment where id = #{id}
+    </delete>
+
+    <delete id="deleteTbEquipmentByIds" parameterType="String">
+        delete from tb_equipment where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
