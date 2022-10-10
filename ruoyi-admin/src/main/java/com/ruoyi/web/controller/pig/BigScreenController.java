@@ -2,10 +2,13 @@ package com.ruoyi.web.controller.pig;
 
 import com.ruoyi.common.core.controller.BaseController;
 import com.ruoyi.common.core.domain.AjaxResult;
+import com.ruoyi.common.core.domain.R;
 import com.ruoyi.common.core.page.TableDataInfo;
 import com.ruoyi.pig.domain.TbData;
+import com.ruoyi.pig.domain.TbEquipment;
 import com.ruoyi.pig.domain.TbNewData;
 import com.ruoyi.pig.service.ITbDataService;
+import com.ruoyi.pig.service.ITbEquipmentService;
 import com.ruoyi.pig.service.ITbNewDataService;
 import com.ruoyi.pig.vo.ChartVO;
 import io.swagger.annotations.Api;
@@ -30,11 +33,14 @@ public class BigScreenController extends BaseController {
     @Autowired
     private ITbDataService iTbDataService;
 
-    @ApiOperation("大屏获取")
-    @GetMapping("/list")
-    public TableDataInfo<TbNewData> list(){
-        List<TbNewData> tbNewDataList = iTbNewDataService.selectTbNewDataList(new TbNewData());
-        return getDataTable(tbNewDataList);
+    @Autowired
+    private ITbEquipmentService equipmentService;
+
+    @ApiOperation("大屏获取最新数据")
+    @GetMapping("/newData")
+    public R<List<TbNewData>> list(TbNewData tbNewData){
+        List<TbNewData> tbNewDataList = iTbNewDataService.selectTbNewDataList(tbNewData);
+        return R.ok(tbNewDataList);
     }
 
     /**
@@ -42,7 +48,8 @@ public class BigScreenController extends BaseController {
      * @return
      */
     @GetMapping("/chartData")
-    public AjaxResult chartData() {
+    @ApiOperation("用于图表返回温度湿度等信息")
+    public AjaxResult chartData(ChartVO chartVO) {
         AjaxResult ajaxResult = new AjaxResult();
         List<ChartVO> temperatureList = iTbDataService.selectTemperatureChart();//查找温度图表数据
         ajaxResult.put("temperature",temperatureList);
@@ -50,5 +57,13 @@ public class BigScreenController extends BaseController {
         ajaxResult.put("humidity",humidityList);
         return ajaxResult;
     }
+
+    @ApiOperation("获取设备信息")
+    @GetMapping("/getEquipment")
+    public R<List<TbEquipment>> getEquipment(TbEquipment tbEquipment){
+        List<TbEquipment> tbEquipments = equipmentService.selectTbEquipmentList(tbEquipment);
+        return R.ok(tbEquipments);
+    }
+
 
 }
