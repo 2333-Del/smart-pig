@@ -12,5 +12,5 @@ public class ChartVO {
     private String time;
 
     @ApiModelProperty(name = "值")
-    private String data;
+    private String value;
 }

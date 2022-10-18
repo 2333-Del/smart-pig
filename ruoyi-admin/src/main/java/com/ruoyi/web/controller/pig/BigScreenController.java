@@ -10,6 +10,7 @@ import com.ruoyi.pig.domain.TbNewData;
 import com.ruoyi.pig.service.ITbDataService;
 import com.ruoyi.pig.service.ITbEquipmentService;
 import com.ruoyi.pig.service.ITbNewDataService;
+import com.ruoyi.pig.vo.ChartListVo;
 import com.ruoyi.pig.vo.ChartVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -49,13 +50,13 @@ public class BigScreenController extends BaseController {
      */
     @GetMapping("/chartData")
     @ApiOperation("用于图表返回温度湿度等信息")
-    public AjaxResult chartData(ChartVO chartVO) {
-        AjaxResult ajaxResult = new AjaxResult();
+    public R<ChartListVo> chartData(ChartVO chartVO) {
+        ChartListVo chartListVo = new ChartListVo();
         List<ChartVO> temperatureList = iTbDataService.selectTemperatureChart();//查找温度图表数据
-        ajaxResult.put("temperature",temperatureList);
+        chartListVo.setTemperature(temperatureList);
         List<ChartVO> humidityList = iTbDataService.selectHumidityLChart();//查找湿度图表数据
-        ajaxResult.put("humidity",humidityList);
-        return ajaxResult;
+        chartListVo.setHumidity(humidityList);
+        return R.ok(chartListVo);
     }
 
     @ApiOperation("获取设备信息")

@@ -44,8 +44,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     <select id="selectTemperatureChart" resultType="com.ruoyi.pig.vo.ChartVO">
         SELECT
-            t1.HOUR time,
-	        ifnull(t2.value,0) data
+            DATE_FORMAT( t1.HOUR,'%H' )  time,
+	        ifnull(t2.value,0) value
         FROM
             (
             SELECT
@@ -62,8 +62,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     <select id="selectHumidityLChart" resultType="com.ruoyi.pig.vo.ChartVO">
         SELECT
-            t1.HOUR time,
-	ifnull(t2.data,0) data
+            DATE_FORMAT( t1.HOUR,'%H' )  time,
+	        ifnull(t2.data,0) value
         FROM
             (
             SELECT
