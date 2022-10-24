@@ -1,5 +1,6 @@
 package com.ruoyi.web.controller.pig;
 
+import com.ruoyi.common.annotation.Anonymous;
 import com.ruoyi.web.Util.FileUploadUtil;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
@@ -28,6 +29,7 @@ public class CameraController {
 
     @RequestMapping("/receive")
     @ResponseBody
+    @Anonymous   //公开接口
     public String receive(HttpServletRequest request) {
         try {
             ServletInputStream inputStream = request.getInputStream();
@@ -67,6 +69,7 @@ public class CameraController {
 
     @RequestMapping(path="/download/{bzlobstring}",method = RequestMethod.POST)
     @ResponseBody
+    @Anonymous
     public void download(HttpServletResponse response,@RequestParam("file") MultipartFile blobFile) {
         response.addHeader("Access-Control-Allow-Origin", "*");//允许所有来源访同
 
