@@ -39,6 +39,9 @@
 
 
 
+
+
+
 <!--        &lt;!&ndash; swagger2&ndash;&gt;-->
 <!--        &lt;!&ndash; swagger2 1.5.20的model问题 &ndash;&gt;-->
 <!--        <dependency>-->
@@ -129,6 +132,28 @@
             <artifactId>ruoyi-pig</artifactId>
             <version>3.8.4</version>
             <scope>compile</scope>
+        </dependency>
+
+        <!--HttpClient-->
+        <dependency>
+            <groupId>commons-httpclient</groupId>
+            <artifactId>commons-httpclient</artifactId>
+            <version>3.1</version>
+        </dependency>
+
+        <!--CloseableHttpClient-->
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.10</version>
+        </dependency>
+
+
+<!--        测试类-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
 
