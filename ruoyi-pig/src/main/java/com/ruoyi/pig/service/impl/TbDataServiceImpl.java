@@ -111,4 +111,13 @@ public class TbDataServiceImpl implements ITbDataService
     public List<ChartVO> selectHumidityLChart() {
         return tbDataMapper.selectHumidityLChart();
     }
+
+    /**
+     * 查找co2图表信息
+     * @return 结果
+     */
+    @Override
+    public List<ChartVO> selectCo2Chart() {
+        return tbDataMapper.selectCo2Chart();
+    }
 }

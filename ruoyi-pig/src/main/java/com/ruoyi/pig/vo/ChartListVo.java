@@ -13,4 +13,7 @@ public class ChartListVo {
     private List<ChartVO> temperature;
     @ApiModelProperty(name="湿度")
     private List<ChartVO> humidity;
+
+    @ApiModelProperty(name="co2")
+    private List<ChartVO> co2;
 }

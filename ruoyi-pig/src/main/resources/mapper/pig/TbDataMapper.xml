@@ -134,4 +134,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <select id="selectCo2Chart" resultType="com.ruoyi.pig.vo.ChartVO">
+        SELECT
+            DATE_FORMAT( t1.HOUR,'%H' )  time,
+	        ifnull(t2.data,0) value
+        FROM
+            (
+            SELECT
+            DATE_FORMAT( @cdate := DATE_ADD( @cdate, INTERVAL - 1 HOUR ), '%y-%m-%d %H' ) HOUR
+            FROM
+            ( SELECT @cdate := DATE_ADD( DATE_FORMAT( NOW( ), '%y-%m-%d %H' ), INTERVAL + 1 HOUR ) FROM sys_menu ) t0
+            LIMIT 24
+            ) t1
+            LEFT JOIN ( SELECT DATE_FORMAT( acquisition_time, '%y-%m-%d %H' ) HOUR , AVG(co2) data FROM tb_data WHERE acquisition_time >= ( NOW( ) - INTERVAL 24 HOUR ) group by hour ) t2 ON t1.HOUR = t2.HOUR
+        GROUP BY
+            t1.HOUR
+        ORDER BY
+            t1.HOUR ASC
+    </select>
 </mapper>

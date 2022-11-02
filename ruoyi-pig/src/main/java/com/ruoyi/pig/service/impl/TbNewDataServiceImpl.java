@@ -90,4 +90,16 @@ public class TbNewDataServiceImpl implements ITbNewDataService
     {
         return tbNewDataMapper.deleteTbNewDataById(id);
     }
+
+    /**
+     * 根据eqid查找有无数据
+     * @param equipmentId
+     * @return
+     */
+    @Override
+    public Integer selectTbNewDataByRqId(String equipmentId) {
+        return tbNewDataMapper.selectTbNewDataByRqId(equipmentId);
+    }
+
+
 }

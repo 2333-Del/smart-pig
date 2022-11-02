@@ -3,15 +3,15 @@
 
  Source Server         : localhost
  Source Server Type    : MySQL
- Source Server Version : 80029
+ Source Server Version : 80031 (8.0.31)
  Source Host           : localhost:3306
  Source Schema         : smart-pig
 
  Target Server Type    : MySQL
- Target Server Version : 80029
+ Target Server Version : 80031 (8.0.31)
  File Encoding         : 65001
 
- Date: 18/10/2022 16:29:53
+ Date: 02/11/2022 11:23:19
 */
 
 SET NAMES utf8mb4;
@@ -43,7 +43,7 @@ CREATE TABLE `gen_table`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`table_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of gen_table
@@ -80,7 +80,7 @@ CREATE TABLE `gen_table_column`  (
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`column_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '代码生成业务表字段' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of gen_table_column
@@ -133,7 +133,7 @@ CREATE TABLE `sys_config`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`config_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '参数配置表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '参数配置表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_config
@@ -164,7 +164,7 @@ CREATE TABLE `sys_dept`  (
   `update_by` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`dept_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 200 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '部门表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 200 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '部门表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_dept
@@ -200,7 +200,7 @@ CREATE TABLE `sys_dict_data`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_code`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典数据表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典数据表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_dict_data
@@ -251,7 +251,7 @@ CREATE TABLE `sys_dict_type`  (
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`dict_id`) USING BTREE,
   UNIQUE INDEX `dict_type`(`dict_type` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典类型表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '字典类型表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_dict_type
@@ -286,7 +286,7 @@ CREATE TABLE `sys_job`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '备注信息',
   PRIMARY KEY (`job_id`, `job_name`, `job_group`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时任务调度表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时任务调度表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_job
@@ -309,7 +309,7 @@ CREATE TABLE `sys_job_log`  (
   `exception_info` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '异常信息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`job_log_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '定时任务调度日志表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_job_log
@@ -330,7 +330,7 @@ CREATE TABLE `sys_logininfor`  (
   `msg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '提示消息',
   `login_time` datetime NULL DEFAULT NULL COMMENT '访问时间',
   PRIMARY KEY (`info_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 168 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 201 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '系统访问记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_logininfor
@@ -403,6 +403,39 @@ INSERT INTO `sys_logininfor` VALUES (164, 'admin', '127.0.0.1', '内网IP', 'Chr
 INSERT INTO `sys_logininfor` VALUES (165, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-16 19:30:48');
 INSERT INTO `sys_logininfor` VALUES (166, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-16 20:21:38');
 INSERT INTO `sys_logininfor` VALUES (167, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-17 19:48:01');
+INSERT INTO `sys_logininfor` VALUES (168, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码错误', '2022-10-20 15:33:50');
+INSERT INTO `sys_logininfor` VALUES (169, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-20 15:33:54');
+INSERT INTO `sys_logininfor` VALUES (170, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-23 15:27:37');
+INSERT INTO `sys_logininfor` VALUES (171, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-23 17:12:28');
+INSERT INTO `sys_logininfor` VALUES (172, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码错误', '2022-10-23 17:12:37');
+INSERT INTO `sys_logininfor` VALUES (173, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-23 17:12:40');
+INSERT INTO `sys_logininfor` VALUES (174, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-23 18:22:36');
+INSERT INTO `sys_logininfor` VALUES (175, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-28 18:31:03');
+INSERT INTO `sys_logininfor` VALUES (176, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码错误', '2022-10-28 20:03:24');
+INSERT INTO `sys_logininfor` VALUES (177, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-28 20:03:27');
+INSERT INTO `sys_logininfor` VALUES (178, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-28 21:04:20');
+INSERT INTO `sys_logininfor` VALUES (179, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-29 20:58:47');
+INSERT INTO `sys_logininfor` VALUES (180, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码错误', '2022-10-29 21:29:31');
+INSERT INTO `sys_logininfor` VALUES (181, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-29 21:29:35');
+INSERT INTO `sys_logininfor` VALUES (182, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 14:36:46');
+INSERT INTO `sys_logininfor` VALUES (183, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 14:38:00');
+INSERT INTO `sys_logininfor` VALUES (184, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 15:08:17');
+INSERT INTO `sys_logininfor` VALUES (185, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码错误', '2022-10-30 17:45:30');
+INSERT INTO `sys_logininfor` VALUES (186, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 17:45:32');
+INSERT INTO `sys_logininfor` VALUES (187, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 18:20:41');
+INSERT INTO `sys_logininfor` VALUES (188, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 18:35:43');
+INSERT INTO `sys_logininfor` VALUES (189, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 18:35:58');
+INSERT INTO `sys_logininfor` VALUES (190, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 20:43:05');
+INSERT INTO `sys_logininfor` VALUES (191, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-30 20:45:29');
+INSERT INTO `sys_logininfor` VALUES (192, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-31 10:25:28');
+INSERT INTO `sys_logininfor` VALUES (193, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-31 12:39:45');
+INSERT INTO `sys_logininfor` VALUES (194, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-31 14:02:33');
+INSERT INTO `sys_logininfor` VALUES (195, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-31 14:16:18');
+INSERT INTO `sys_logininfor` VALUES (196, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-10-31 16:43:12');
+INSERT INTO `sys_logininfor` VALUES (197, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-11-01 17:07:21');
+INSERT INTO `sys_logininfor` VALUES (198, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-11-01 18:32:51');
+INSERT INTO `sys_logininfor` VALUES (199, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '1', '验证码错误', '2022-11-01 19:41:34');
+INSERT INTO `sys_logininfor` VALUES (200, 'admin', '127.0.0.1', '内网IP', 'Chrome 10', 'Windows 10', '0', '登录成功', '2022-11-02 11:00:13');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -429,7 +462,7 @@ CREATE TABLE `sys_menu`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '备注',
   PRIMARY KEY (`menu_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2001 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单权限表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2001 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '菜单权限表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_menu
@@ -537,7 +570,7 @@ CREATE TABLE `sys_notice`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`notice_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '通知公告表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '通知公告表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_notice
@@ -567,7 +600,7 @@ CREATE TABLE `sys_oper_log`  (
   `error_msg` varchar(2000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '' COMMENT '错误消息',
   `oper_time` datetime NULL DEFAULT NULL COMMENT '操作时间',
   PRIMARY KEY (`oper_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 116 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '操作日志记录' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_oper_log
@@ -605,7 +638,7 @@ CREATE TABLE `sys_post`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`post_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '岗位信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '岗位信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_post
@@ -635,7 +668,7 @@ CREATE TABLE `sys_role`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`role_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role
@@ -651,7 +684,7 @@ CREATE TABLE `sys_role_dept`  (
   `role_id` bigint NOT NULL COMMENT '角色ID',
   `dept_id` bigint NOT NULL COMMENT '部门ID',
   PRIMARY KEY (`role_id`, `dept_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色和部门关联表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色和部门关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role_dept
@@ -668,7 +701,7 @@ CREATE TABLE `sys_role_menu`  (
   `role_id` bigint NOT NULL COMMENT '角色ID',
   `menu_id` bigint NOT NULL COMMENT '菜单ID',
   PRIMARY KEY (`role_id`, `menu_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色和菜单关联表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '角色和菜单关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_role_menu
@@ -766,7 +799,7 @@ DROP TABLE IF EXISTS `sys_time`;
 CREATE TABLE `sys_time`  (
   `id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_time
@@ -825,12 +858,12 @@ CREATE TABLE `sys_user`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `remark` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户信息表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 100 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户信息表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2022-10-17 19:48:01', 'admin', '2022-10-01 15:08:30', '', '2022-10-17 19:48:01', '管理员');
+INSERT INTO `sys_user` VALUES (1, 103, 'admin', '若依', '00', 'ry@163.com', '15888888888', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2022-11-02 11:00:14', 'admin', '2022-10-01 15:08:30', '', '2022-11-02 11:00:13', '管理员');
 INSERT INTO `sys_user` VALUES (2, 105, 'ry', '若依', '00', 'ry@qq.com', '15666666666', '1', '', '$2a$10$7JB720yubVSZvUI0rEqK/.VqGOZTH.ulu33dHOiBE8ByOhJIrdAu2', '0', '0', '127.0.0.1', '2022-10-01 15:08:30', 'admin', '2022-10-01 15:08:30', '', NULL, '测试员');
 
 -- ----------------------------
@@ -841,7 +874,7 @@ CREATE TABLE `sys_user_post`  (
   `user_id` bigint NOT NULL COMMENT '用户ID',
   `post_id` bigint NOT NULL COMMENT '岗位ID',
   PRIMARY KEY (`user_id`, `post_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户与岗位关联表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户与岗位关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user_post
@@ -857,7 +890,7 @@ CREATE TABLE `sys_user_role`  (
   `user_id` bigint NOT NULL COMMENT '用户ID',
   `role_id` bigint NOT NULL COMMENT '角色ID',
   PRIMARY KEY (`user_id`, `role_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户和角色关联表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '用户和角色关联表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_user_role
@@ -871,7 +904,7 @@ INSERT INTO `sys_user_role` VALUES (2, 2);
 DROP TABLE IF EXISTS `tb_data`;
 CREATE TABLE `tb_data`  (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `equipment_id` int NULL DEFAULT NULL COMMENT '设备编号',
+  `equipment_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '设备编号',
   `temperature` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '温度',
   `ammonia` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '氨气含量',
   `humidity` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '湿度',
@@ -882,12 +915,136 @@ CREATE TABLE `tb_data`  (
   `sulf_hydr` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '硫化氢',
   `acquisition_time` datetime NULL DEFAULT NULL COMMENT '采集时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备数据表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 151 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备数据表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_data
 -- ----------------------------
-INSERT INTO `tb_data` VALUES (1, 12313123, '23', '23', '23', '23', '23', '23', '23', '23', '2022-10-17 14:25:55');
+INSERT INTO `tb_data` VALUES (26, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (27, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (28, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (29, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (30, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (31, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (32, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (33, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (34, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (35, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (36, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (37, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (38, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (39, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (40, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (41, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (42, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (43, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (44, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (45, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (46, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (47, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (48, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (49, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (50, 'AMT22041216320011', '24.7', '13.0', '64.0', '60.0', '78.0', '834.0', '0.0', '0.0', '2022-11-02 10:44:23');
+INSERT INTO `tb_data` VALUES (51, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (52, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (53, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (54, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (55, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (56, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (57, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (58, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (59, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (60, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (61, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (62, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (63, 'AMT22041216320011AC', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (64, 'AMT22041216320011', '25.0', '18.0', '64.0', '64.0', '86.0', '1034.0', '1.0', '0.0', '2022-11-02 10:45:23');
+INSERT INTO `tb_data` VALUES (65, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (66, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (67, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (68, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (69, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (70, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (71, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (72, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (73, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (74, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (75, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (76, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (77, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (78, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (79, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (80, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (81, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (82, 'AMT22041216320011', '24.3', '0.0', '57.0', '42.0', '60.0', '512.0', '2.0', '0.0', '2022-11-02 10:49:23');
+INSERT INTO `tb_data` VALUES (83, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (84, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (85, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (86, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (87, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (88, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (89, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (90, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (91, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (92, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (93, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (94, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (95, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (96, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (97, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (98, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (99, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (100, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (101, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (102, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (103, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (104, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (105, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (106, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (107, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (108, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (109, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (110, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (111, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (112, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (113, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (114, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (115, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (116, 'AMT22041216320011', '24.3', '0.0', '59.0', '49.0', '68.0', '814.0', '0.0', '0.0', '2022-11-02 10:50:23');
+INSERT INTO `tb_data` VALUES (117, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (118, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (119, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (120, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (121, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (122, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (123, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (124, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (125, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (126, 'AMT22041216320011', '24.8', '12.0', '63.0', '45.0', '102.0', '1092.0', '1.0', '0.0', '2022-11-02 10:52:23');
+INSERT INTO `tb_data` VALUES (127, 'AMT22041216320011', '25.1', '21.0', '64.0', '56.0', '122.0', '1274.0', '2.0', '0.0', '2022-11-02 10:53:23');
+INSERT INTO `tb_data` VALUES (128, 'AMT22041216320011', '25.3', '28.0', '65.0', '60.0', '100.0', '1481.0', '0.0', '0.0', '2022-11-02 10:54:23');
+INSERT INTO `tb_data` VALUES (129, 'AMT22041216320011', '25.3', '28.0', '65.0', '60.0', '100.0', '1481.0', '0.0', '0.0', '2022-11-02 10:54:23');
+INSERT INTO `tb_data` VALUES (130, 'AMT22041216320011', '25.0', '0.0', '53.0', '60.0', '81.0', '853.0', '0.0', '0.0', '2022-11-02 10:56:23');
+INSERT INTO `tb_data` VALUES (131, 'AMT22041216320011', '24.6', '0.0', '53.0', '56.0', '92.0', '547.0', '1.0', '0.0', '2022-11-02 10:57:23');
+INSERT INTO `tb_data` VALUES (132, 'AMT22041216320011', '24.4', '0.0', '56.0', '56.0', '86.0', '431.0', '1.0', '0.0', '2022-11-02 10:58:41');
+INSERT INTO `tb_data` VALUES (133, 'AMT22041216320011', '24.5', '0.0', '58.0', '55.0', '81.0', '480.0', '1.0', '0.0', '2022-11-02 10:59:23');
+INSERT INTO `tb_data` VALUES (134, 'AMT22041216320011', '24.7', '1.0', '60.0', '56.0', '79.0', '642.0', '0.0', '0.0', '2022-11-02 11:00:23');
+INSERT INTO `tb_data` VALUES (135, 'AMT22041216320011', '24.9', '9.0', '62.0', '59.0', '99.0', '818.0', '1.0', '0.0', '2022-11-02 11:01:23');
+INSERT INTO `tb_data` VALUES (136, 'AMT22041216320011', '25.2', '19.0', '63.0', '71.0', '97.0', '1059.0', '0.0', '0.0', '2022-11-02 11:02:23');
+INSERT INTO `tb_data` VALUES (137, 'AMT22041216320011', '25.1', '0.0', '53.0', '62.0', '86.0', '846.0', '0.0', '0.0', '2022-11-02 11:03:23');
+INSERT INTO `tb_data` VALUES (138, 'AMT22041216320011', '24.8', '0.0', '53.0', '54.0', '74.0', '561.0', '0.0', '0.0', '2022-11-02 11:04:23');
+INSERT INTO `tb_data` VALUES (139, 'AMT22041216320011', '24.4', '0.0', '54.0', '50.0', '75.0', '416.0', '1.0', '0.0', '2022-11-02 11:05:23');
+INSERT INTO `tb_data` VALUES (140, 'AMT22041216320011', '24.4', '0.0', '57.0', '57.0', '78.0', '636.0', '0.0', '0.0', '2022-11-02 11:06:23');
+INSERT INTO `tb_data` VALUES (141, 'AMT22041216320011', '24.6', '0.0', '59.0', '55.0', '91.0', '727.0', '0.0', '0.0', '2022-11-02 11:07:23');
+INSERT INTO `tb_data` VALUES (142, 'AMT22041216320011', '24.8', '5.0', '60.0', '55.0', '78.0', '781.0', '2.0', '0.0', '2022-11-02 11:08:23');
+INSERT INTO `tb_data` VALUES (143, 'AMT22041216320011', '25.1', '11.0', '62.0', '54.0', '90.0', '932.0', '0.0', '0.0', '2022-11-02 11:09:23');
+INSERT INTO `tb_data` VALUES (144, 'AMT22041216320011', '25.2', '0.0', '53.0', '58.0', '92.0', '976.0', '0.0', '0.0', '2022-11-02 11:10:23');
+INSERT INTO `tb_data` VALUES (145, 'AMT22041216320011', '24.8', '0.0', '51.0', '43.0', '57.0', '612.0', '1.0', '0.0', '2022-11-02 11:11:23');
+INSERT INTO `tb_data` VALUES (146, 'AMT22041216320011', '24.3', '0.0', '53.0', '44.0', '58.0', '445.0', '0.0', '0.0', '2022-11-02 11:12:23');
+INSERT INTO `tb_data` VALUES (147, 'AMT22041216320011', '24.3', '0.0', '57.0', '47.0', '85.0', '550.0', '1.0', '0.0', '2022-11-02 11:13:23');
+INSERT INTO `tb_data` VALUES (148, 'AMT22041216320011', '24.5', '0.0', '57.0', '50.0', '98.0', '737.0', '0.0', '0.0', '2022-11-02 11:14:23');
+INSERT INTO `tb_data` VALUES (149, 'AMT22041216320011', '24.8', '0.0', '60.0', '52.0', '94.0', '877.0', '0.0', '0.0', '2022-11-02 11:15:23');
+INSERT INTO `tb_data` VALUES (150, 'AMT22041216320011', '25.0', '5.0', '61.0', '53.0', '66.0', '1088.0', '0.0', '0.0', '2022-11-02 11:16:23');
 
 -- ----------------------------
 -- Table structure for tb_equipment
@@ -904,12 +1061,12 @@ CREATE TABLE `tb_equipment`  (
   `online_type` int NULL DEFAULT NULL COMMENT '在线状态 0下线  1在线',
   `manufacturer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '设备生产商',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '设备表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_equipment
 -- ----------------------------
-INSERT INTO `tb_equipment` VALUES (1, '12313123', '123机器', '0,0', 1, '2022-10-29 14:26:23', NULL, 1, '芜湖公司');
+INSERT INTO `tb_equipment` VALUES (1, 'AMT22041216320011', '123机器', '0,0', 1, '2022-10-29 14:26:23', NULL, 1, '芜湖公司');
 
 -- ----------------------------
 -- Table structure for tb_new_data
@@ -917,7 +1074,7 @@ INSERT INTO `tb_equipment` VALUES (1, '12313123', '123机器', '0,0', 1, '2022-1
 DROP TABLE IF EXISTS `tb_new_data`;
 CREATE TABLE `tb_new_data`  (
   `id` int NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `equipment_id` int NULL DEFAULT NULL COMMENT '设备编号',
+  `equipment_id` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '设备编号',
   `temperature` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '温度',
   `ammonia` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '氨气含量',
   `humidity` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '湿度',
@@ -928,11 +1085,11 @@ CREATE TABLE `tb_new_data`  (
   `sulf_hydr` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '硫化氢',
   `acquisition_time` datetime NULL DEFAULT NULL COMMENT '采集时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '最新数据表' ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci COMMENT = '最新数据表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of tb_new_data
 -- ----------------------------
-INSERT INTO `tb_new_data` VALUES (1, 12313123, '23', '23', '23', '23', '23', '23', '23', '23', '2022-10-14 14:25:55');
+INSERT INTO `tb_new_data` VALUES (2, 'AMT22041216320011', '25.0', '5.0', '61.0', '53.0', '66.0', '1088.0', '0.0', '0.0', '2022-11-02 11:16:23');
 
 SET FOREIGN_KEY_CHECKS = 1;

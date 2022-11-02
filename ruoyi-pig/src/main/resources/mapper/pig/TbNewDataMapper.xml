@@ -98,4 +98,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <select id="selectTbNewDataByRqId" resultType="int">
+        select id from  tb_new_data where equipment_id = #{equipmentId}
+    </select>
 </mapper>

@@ -2,6 +2,7 @@ package com.ruoyi.pig.mapper;
 
 import java.util.List;
 import com.ruoyi.pig.domain.TbNewData;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 最新数据Mapper接口
@@ -58,4 +59,11 @@ public interface TbNewDataMapper
      * @return 结果
      */
     public int deleteTbNewDataByIds(Long[] ids);
+
+    /**
+     * 根据eqid查找有无数据
+     * @param equipmentId
+     * @return
+     */
+    Integer selectTbNewDataByRqId(@Param("equipmentId") String equipmentId);
 }

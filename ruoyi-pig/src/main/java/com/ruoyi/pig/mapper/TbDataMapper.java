@@ -73,4 +73,10 @@ public interface TbDataMapper
      * @return 结果
      */
     List<ChartVO> selectHumidityLChart();
+
+    /**
+     * 查找co2图表信息
+     * @return 结果
+     */
+    List<ChartVO> selectCo2Chart();
 }

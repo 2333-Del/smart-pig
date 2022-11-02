@@ -67,4 +67,17 @@ public class BigScreenController extends BaseController {
     }
 
 
+    /**
+     * 用于图表返回co2图表信息
+     * @return
+     */
+    @GetMapping("/getChartCo2Data")
+    @ApiOperation("用于图表返回温度湿度等信息")
+    public R<ChartListVo> getChartDataCO2(ChartVO chartVO) {
+        ChartListVo chartListVo = new ChartListVo();
+        List<ChartVO> co2List = iTbDataService.selectCo2Chart();//查找co2图表信息
+        chartListVo.setCo2(co2List);
+        return R.ok(chartListVo);
+    }
+
 }

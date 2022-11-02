@@ -5,10 +5,8 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import com.ruoyi.common.annotation.Excel;
-import com.ruoyi.common.core.domain.BaseEntity;
+import lombok.NoArgsConstructor;
 
 /**
  * 最新数据对象 tb_new_data
@@ -17,6 +15,7 @@ import com.ruoyi.common.core.domain.BaseEntity;
  * @date 2022-10-09
  */
 @Data
+@NoArgsConstructor
 @ApiModel("最新数据类")
 public class TbNewData
 {
@@ -26,7 +25,7 @@ public class TbNewData
     /** 设备编号 */
     @Excel(name = "设备编号")
     @ApiModelProperty(name = "设备编号")
-    private Long equipmentId;
+    private String equipmentId;
 
     /** 温度 */
     @Excel(name = "温度")
@@ -73,6 +72,25 @@ public class TbNewData
     @Excel(name = "采集时间", width = 30, dateFormat = "yyyy-MM-dd")
     @ApiModelProperty(name = "采集时间")
     private Date acquisitionTime;
+
+    public TbNewData(TbData tbData){
+        try {
+            this.acquisitionTime = tbData.getAcquisitionTime();
+            this.co = tbData.getCo();
+            this.co2 = tbData.getCo2();
+            this.ammonia = tbData.getAmmonia();
+            this.humidity = tbData.getHumidity();
+            this.pm10 = tbData.getPm10();
+            this.pm25 = tbData.getPm25();
+            this.sulfHydr = tbData.getSulfHydr();
+            this.temperature = tbData.getTemperature();
+            this.equipmentId = tbData.getEquipmentId();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 }

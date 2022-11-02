@@ -2,6 +2,7 @@ package com.ruoyi.pig.service;
 
 import java.util.List;
 import com.ruoyi.pig.domain.TbNewData;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 最新数据Service接口
@@ -58,4 +59,13 @@ public interface ITbNewDataService
      * @return 结果
      */
     public int deleteTbNewDataById(Long id);
+
+
+    /**
+     * 根据eqid查找有无数据
+     *
+     * @param equipmentId
+     * @return
+     */
+    Integer selectTbNewDataByRqId( String equipmentId);
 }

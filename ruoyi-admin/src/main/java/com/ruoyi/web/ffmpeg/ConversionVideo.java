@@ -40,6 +40,8 @@ public class ConversionVideo implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+//        String ip = "47.104.196.235:65488";
+//        String url = "rtsp://admin:SYS11505@"+ip+":554/cam/realmonitor?channel=1&subtype=0";
         ConversionVideo conversionVideo = new ConversionVideo();
 //        String rtsptest="rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4";
 //        String rtspip="rtsp://admin:xinxi11505@10.1.1.66/cam/realmonitor?channel=1&subtype=0";
@@ -48,6 +50,7 @@ public class ConversionVideo implements ApplicationRunner {
         String rtspip="rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4";
         String rtspnew="rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mp4";
         conversionVideo.pushVideoAsRTSP(rtspnew, "http://127.0.0.1:8080/receive");
+//        conversionVideo.pushVideoAsRTSP(url, "http://127.0.0.1:8080/receive");
     }
 
     //将ts码流转mp4

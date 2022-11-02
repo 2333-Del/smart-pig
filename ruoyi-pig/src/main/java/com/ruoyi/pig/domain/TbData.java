@@ -27,7 +27,7 @@ public class TbData
     /** 设备编号 */
     @Excel(name = "设备编号")
     @ApiModelProperty(name = "设备编号")
-    private Long equipmentId;
+    private String equipmentId;
 
     /** 温度 */
     @Excel(name = "温度")
